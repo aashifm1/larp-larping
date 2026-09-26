@@ -1,0 +1,57 @@
+{
+"openapi": "3.0.3",
+"info": {
+"title": "CalcPro API",
+"description": "API for performing arithmetic calculations.",
+"version": "1.0.0"
+},
+"servers": [
+{
+"url": "http://localhost:5000"
+}
+],
+"paths": {
+"/api/calculate": {
+"post": {
+"summary": "Calculate an arithmetic expression",
+"requestBody": {
+"required": true,
+"content": {
+"application/json": {
+"schema": {
+"type": "object",
+"required": [
+"expression"
+],
+"properties": {
+"expression": {
+"type": "string",
+"example": "12 * (5 + 3)"
+}
+}
+}
+}
+}
+},
+"responses": {
+"200": {
+"description": "Calculation successful"
+},
+"400": {
+"description": "Invalid expression"
+}
+}
+}
+},
+"/api/health": {
+"get": {
+"summary": "Check API health",
+"responses": {
+"200": {
+"description": "API is healthy"
+}
+}
+}
+}
+}
+}
